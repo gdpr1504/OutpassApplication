@@ -17,4 +17,6 @@ urlpatterns = [
     path('secret3/', views.SecretPage.as_view(), name='secret3'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('loggedin',views.login_successful,name='loggedinsuccessfully'),
+    path('outpasses/',views.outpasses,name="outpasses")
 ]

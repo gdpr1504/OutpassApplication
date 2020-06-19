@@ -43,3 +43,7 @@ def secret_page(request):
 
 class SecretPage(LoginRequiredMixin, TemplateView):
     template_name = 'secret_page.html'
+def login_successful(request):
+    return render(request,'registration/login1.html')
+def outpasses(request):
+    return render(request,'registration/outpassdetails.html')
