@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+  .option1 {
+    display: inline-block;
+    padding-right: 12px;
+  }
+  tr:hover td {
+    background: #85c1e9 !important;
+}
+td > a {
+  display: block;
+}
+</style>
+<div class="border">
+<nav class="avbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand " style="padding-left:200px;padding-right: 750px;color:yellow" href="#" >GPMS</a>
+    </div>
+    <ul class="nav navbar-nav">
+    <li  class="option1" style="float:right;"><a href="homepage"style="color:white">LogOut</a></li>
+
+      <li  class="option1" style="float: right;padding-right: 50px"><a href="#"style="color:white">Hello {% if values %}{{values.ausername}}{% endif %}</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <h2 style="color: red"><u>Outpass Requests</u></h2>         
+  {%if message%}
+    <h2>{{message}}</h2>
+  {% endif %}
+
+
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+</script>

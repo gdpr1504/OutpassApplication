@@ -1,0 +1,157 @@
+{% load static %}
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="fawazkhan">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesm.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}GPMS{% endblock %}</title>
+    <style type="text/css">
+        .asteriskField {
+            display: none;
+        }
+
+        form .alert ul li {
+            list-style: none;
+        }
+
+        form .alert ul {
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">GPMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% if values %}
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'help' %}">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'secret' %}">Secret Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'secret2' %}">Secret Page 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'secret3' %}">Secret Page 3</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% if values %}
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ values.ausername }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="loggedin">Outpass Requests</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+  <h2>Homepage</h2>
+  <p>Welcome to the GPMS, {% if values %}{{ values.ausername }}{% else %}<b>HOD</b>{% endif %}!</p>
+<div class="carde">
+  <a href="https://www.google.com/search?rlz=1C1OKWM_enIN881IN881&tbm=nws&ei=AsPsXpmjPK3gz7sPgpWIoA8&q=Security&oq=Security&gs_l=psy-ab.3..0l10.1438.5062.0.5393.19.12.0.1.1.0.171.948.5j4.9.0....0...1c.1.64.psy-ab..10.9.858....0.Pxiba7RKxJA">
+    <div class="cardheader iconcolor1">
+      <img src="http://www.pngmart.com/files/6/Security-Camera-PNG-Background-Image.png" alt="Security">
+    </div>
+    <div class="cardlinks">
+      <h1>Security</h1>
+      <ul class="cardlist">
+        <li></li>
+        <li>CCTV/IP Cameras</li>
+        <li>Intrusion Alarms</li>
+        <li>Time Synchronization</li>
+      </ul>
+    </div>
+  </a>
+</div>
+
+<div class="carde">
+ <a href="https://www.google.com/search?q=Unauthorised&rlz=1C1OKWM_enIN881IN881&source=lnms&tbm=nws&sa=X&ved=2ahUKEwiShonsgY7qAhXn7XMBHa7vD9gQ_AUoAXoECA4QAw">
+    <div class="cardheader iconcolor2">
+       <img src="https://png2.cleanpng.com/sh/6c7a3560e668a61958b9f44608af6b09/L0KzQYm3U8A6N5prfZH0aYP2gLBuTgNma6Z3geZELXjkc7zskr1paZRwjNtBaYPwPb38jQp0bZQyhNHwbz3kfrF1mf1wfaQyjORqboPzccPsjwQueJ9sRadqYUK1Q4a8hcE0a2E2Rqc7N0S7RIq4UcUzOGY8TaU6N0m1Qoe1kP5o/kisspng-security-hacker-hacktivism-lulzsec-logo-anonymous-transparent-png-5aa22355e13c01.5274849115205753179226.png" alt="Unauthorised" >
+    </div>
+    <div class="cardlinks">
+      <h1>Unauthorised</h1>
+      <ul class="cardlist">
+        <li>Proactivity</li>
+        <li>Integration</li>
+        <li>Access Controls</li>
+      </ul>
+    </div>
+  </a>
+</div>
+
+<div class="carde">
+  <a href="https://www.google.com/search?rlz=1C1OKWM_enIN881IN881&tbm=nws&ei=48HsXrXBBbL7z7sPso6O4AU&q=Gate+pass&oq=Gate+pass&gs_l=psy-ab.3..0l3.35373.38875.0.38990.16.14.0.0.0.0.264.1204.0j5j2.7.0....0...1c.1.64.psy-ab..9.7.1204....0._MmokeVRiJA">
+    <div class="cardheader iconcolor1">
+      <img src= "http://www.pngmart.com/files/6/Guard-PNG-Picture.png" alt="Guard">
+
+    </div>
+    <div class="cardlinks">
+      <h1>Gate Pass</h1>
+      <ul class="cardlist">
+        <li>Risk Management</li>
+        <li>Access Controls</li>
+        <li>Incident Management</li>
+      </ul>
+    </div>
+  </a>
+</div>
+
+<div class="carde">
+  <a href="https://www.google.com/search?hl=en&tbm=nws&ei=qcLsXs-MCZrdz7sPod-M0AM&q=Agreement&oq=Agreement&gs_l=psy-ab.3..0l3.7458.15663.0.16165.7.6.0.1.1.0.159.797.1j5.6.0....0...1c.1.64.psy-ab..0.7.803...0i13k1.0.Fm_HDtWgyPo">
+    <div class="cardheader iconcolor2">
+      <img src="http://www.pngmart.com/files/3/Business-People-PNG-Clipart.png" alt="People">
+    </div>
+    <div class="cardlinks">
+      <h1>Agreement</h1>
+      <ul class="cardlist">
+        <li>Trust</li>
+        <li>Safety</li>
+        <li>Communication</li>
+      </ul>
+    </div>
+  </a>
+</div>
+
+{% endblock %}
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

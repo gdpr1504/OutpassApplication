@@ -7,17 +7,35 @@
     <div class="col-6">
       <div class="card">
         <div class="card-body">
-          <h2>Log In</h2>
-          <form method="post" novalidate>
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" class="btn btn-primary"><a href="login1.html">Log in</a></button>
+            <div class="container">
+             <form method="POST" action="{%url 'home1'%}">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Log In</legend>
+                          <div class="form-group">
+                            <label for="Username">Username:</label>
+                            <input type="text" class="form-control" id="Username" placeholder="Enter Username" name="Username">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                          </div>
+                </fieldset>
+            
+                <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Login</button>
+                </div>
+        </form>
+    </div>
             <a href="{% url 'password_reset' %}" class="btn btn-link">Forgot your password?</a>
-          </form>
+
         </div>
       </div>
     </div>
   </div>
+  {% if data %}
+  {{data.message}}
+  {% endif %}
   <div class="social-menu">
     <br>
     <br>
